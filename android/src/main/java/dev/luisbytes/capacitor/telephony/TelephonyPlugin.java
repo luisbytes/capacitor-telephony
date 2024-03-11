@@ -65,7 +65,7 @@ public class TelephonyPlugin extends Plugin {
         if (!withBasicPermission && Build.VERSION.SDK_INT <= Build.VERSION_CODES.S_V2) {
             final PermissionState permissionState = getPermissionState("phone_state");
 
-            return permissionState != PermissionState.GRANTED;
+            return permissionState == PermissionState.GRANTED;
         }
 
         return true;
