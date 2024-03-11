@@ -75,10 +75,14 @@ getNetworkType(options?: { withBasicPermission?: boolean | undefined; } | undefi
 
 #### TelephonyDataState
 
-| Members            | Value                       |
-| ------------------ | --------------------------- |
-| **`CONNECTED`**    | <code>'CONNECTED'</code>    |
-| **`DISCONNECTED`** | <code>'DISCONNECTED'</code> |
+| Members                    | Value                               |
+| -------------------------- | ----------------------------------- |
+| **`DISCONNECTED`**         | <code>'DISCONNECTED'</code>         |
+| **`CONNECTING`**           | <code>'CONNECTING'</code>           |
+| **`CONNECTED`**            | <code>'CONNECTED'</code>            |
+| **`SUSPENDED`**            | <code>'SUSPENDED'</code>            |
+| **`DISCONNECTING`**        | <code>'DISCONNECTING'</code>        |
+| **`HANDOVER_IN_PROGRESS`** | <code>'HANDOVER_IN_PROGRESS'</code> |
 
 
 #### TelephonySignalStrengthLevel

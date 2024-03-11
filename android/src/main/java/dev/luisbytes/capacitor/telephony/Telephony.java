@@ -1,6 +1,11 @@
 package dev.luisbytes.capacitor.telephony;
 
 import static android.telephony.TelephonyManager.DATA_CONNECTED;
+import static android.telephony.TelephonyManager.DATA_CONNECTING;
+import static android.telephony.TelephonyManager.DATA_DISCONNECTED;
+import static android.telephony.TelephonyManager.DATA_DISCONNECTING;
+import static android.telephony.TelephonyManager.DATA_HANDOVER_IN_PROGRESS;
+import static android.telephony.TelephonyManager.DATA_SUSPENDED;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -9,9 +14,10 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.telephony.SignalStrength;
 import android.telephony.TelephonyManager;
-import android.util.Log;
+
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+
 import com.getcapacitor.JSObject;
 
 public class Telephony {
@@ -46,27 +52,26 @@ public class Telephony {
             return "UNKNOWN";
         }
 
-        @SuppressLint("MissingPermission")
-        final int dataNetworkType = this.telephonyManager.getDataNetworkType();
+        @SuppressLint("MissingPermission") final int dataNetworkType = this.telephonyManager.getDataNetworkType();
 
         if (
-            dataNetworkType == TelephonyManager.NETWORK_TYPE_GPRS ||
-            dataNetworkType == TelephonyManager.NETWORK_TYPE_EDGE ||
-            dataNetworkType == TelephonyManager.NETWORK_TYPE_CDMA ||
-            dataNetworkType == TelephonyManager.NETWORK_TYPE_1xRTT ||
-            dataNetworkType == TelephonyManager.NETWORK_TYPE_IDEN
+                dataNetworkType == TelephonyManager.NETWORK_TYPE_GPRS ||
+                        dataNetworkType == TelephonyManager.NETWORK_TYPE_EDGE ||
+                        dataNetworkType == TelephonyManager.NETWORK_TYPE_CDMA ||
+                        dataNetworkType == TelephonyManager.NETWORK_TYPE_1xRTT ||
+                        dataNetworkType == TelephonyManager.NETWORK_TYPE_IDEN
         ) {
             return "2G";
         } else if (
-            dataNetworkType == TelephonyManager.NETWORK_TYPE_UMTS ||
-            dataNetworkType == TelephonyManager.NETWORK_TYPE_EVDO_0 ||
-            dataNetworkType == TelephonyManager.NETWORK_TYPE_EVDO_A ||
-            dataNetworkType == TelephonyManager.NETWORK_TYPE_HSDPA ||
-            dataNetworkType == TelephonyManager.NETWORK_TYPE_HSUPA ||
-            dataNetworkType == TelephonyManager.NETWORK_TYPE_HSPA ||
-            dataNetworkType == TelephonyManager.NETWORK_TYPE_EVDO_B ||
-            dataNetworkType == TelephonyManager.NETWORK_TYPE_EHRPD ||
-            dataNetworkType == TelephonyManager.NETWORK_TYPE_HSPAP
+                dataNetworkType == TelephonyManager.NETWORK_TYPE_UMTS ||
+                        dataNetworkType == TelephonyManager.NETWORK_TYPE_EVDO_0 ||
+                        dataNetworkType == TelephonyManager.NETWORK_TYPE_EVDO_A ||
+                        dataNetworkType == TelephonyManager.NETWORK_TYPE_HSDPA ||
+                        dataNetworkType == TelephonyManager.NETWORK_TYPE_HSUPA ||
+                        dataNetworkType == TelephonyManager.NETWORK_TYPE_HSPA ||
+                        dataNetworkType == TelephonyManager.NETWORK_TYPE_EVDO_B ||
+                        dataNetworkType == TelephonyManager.NETWORK_TYPE_EHRPD ||
+                        dataNetworkType == TelephonyManager.NETWORK_TYPE_HSPAP
         ) {
             return "3G";
         } else if (dataNetworkType == TelephonyManager.NETWORK_TYPE_LTE) {
@@ -99,9 +104,14 @@ public class Telephony {
     private String getDataState() {
         int dataState = this.telephonyManager.getDataState();
 
+        if (dataState == DATA_DISCONNECTED) return "DISCONNECTED";
+        if (dataState == DATA_CONNECTING) return "CONNECTING";
         if (dataState == DATA_CONNECTED) return "CONNECTED";
+        if (dataState == DATA_SUSPENDED) return "SUSPENDED";
+        if (dataState == DATA_DISCONNECTING) return "DISCONNECTING";
+        if (dataState == DATA_HANDOVER_IN_PROGRESS) return "HANDOVER_IN_PROGRESS";
 
-        return "DISCONNECTED";
+        return "UNKNOWN";
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)

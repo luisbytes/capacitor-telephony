@@ -22,8 +22,13 @@ export enum TelephonyNetworkType {
 }
 
 export enum TelephonyDataState {
-  CONNECTED = 'CONNECTED',
   DISCONNECTED = 'DISCONNECTED',
+  CONNECTING = 'CONNECTING',
+  CONNECTED = 'CONNECTED',
+  SUSPENDED = 'SUSPENDED',
+  DISCONNECTING = 'DISCONNECTING',
+  HANDOVER_IN_PROGRESS = 'HANDOVER_IN_PROGRESS',
+  UNKNOWN = 'UNKNOWN'
 }
 
 export interface TelephonyInfo {
