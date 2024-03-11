@@ -70,10 +70,10 @@ getInfo() => Promise<TelephonyInfo>
 
 | Members       | Value                  |
 | ------------- | ---------------------- |
-| **`'2G'`**    | <code>'2G'</code>      |
-| **`'3G'`**    | <code>'3G'</code>      |
+| **`TWO_G`**   | <code>'2G'</code>      |
+| **`THREE_G`** | <code>'3G'</code>      |
 | **`LTE`**     | <code>'LTE'</code>     |
-| **`'5G'`**    | <code>'5G'</code>      |
+| **`FIVE_G`**  | <code>'5G'</code>      |
 | **`UNKNOWN`** | <code>'UNKNOWN'</code> |
 
 
