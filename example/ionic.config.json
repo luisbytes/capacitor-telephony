@@ -1,0 +1,8 @@
+{
+  "name": "Telephony Example",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone",
+  "npmClient": "pnpm"
+}

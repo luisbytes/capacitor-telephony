@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Telephony Example</string>
+    <string name="title_activity_main">Telephony Example</string>
+    <string name="package_name">dev.luisbytes.capacitor.telephony.example</string>
+    <string name="custom_url_scheme">dev.luisbytes.capacitor.telephony.example</string>
+</resources>
