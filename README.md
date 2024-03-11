@@ -23,6 +23,7 @@ To use this plugin you need to add the following permissions to the `AndroidMani
 <docgen-index>
 
 * [`getInfo()`](#getinfo)
+* [`getNetworkType(...)`](#getnetworktype)
 * [Interfaces](#interfaces)
 * [Enums](#enums)
 
@@ -42,6 +43,21 @@ getInfo() => Promise<TelephonyInfo>
 --------------------
 
 
+### getNetworkType(...)
+
+```typescript
+getNetworkType(options?: { withBasicPermission?: boolean | undefined; } | undefined) => Promise<{ type: TelephonyNetworkType; }>
+```
+
+| Param         | Type                                            |
+| ------------- | ----------------------------------------------- |
+| **`options`** | <code>{ withBasicPermission?: boolean; }</code> |
+
+**Returns:** <code>Promise&lt;{ type: <a href="#telephonynetworktype">TelephonyNetworkType</a>; }&gt;</code>
+
+--------------------
+
+
 ### Interfaces
 
 
@@ -50,7 +66,6 @@ getInfo() => Promise<TelephonyInfo>
 | Prop                      | Type                                                                                  |
 | ------------------------- | ------------------------------------------------------------------------------------- |
 | **`dataState`**           | <code><a href="#telephonydatastate">TelephonyDataState</a></code>                     |
-| **`networkType`**         | <code><a href="#telephonynetworktype">TelephonyNetworkType</a></code>                 |
 | **`signalStrengthLevel`** | <code><a href="#telephonysignalstrengthlevel">TelephonySignalStrengthLevel</a></code> |
 | **`simOperationName`**    | <code>string</code>                                                                   |
 
@@ -66,17 +81,6 @@ getInfo() => Promise<TelephonyInfo>
 | **`DISCONNECTED`** | <code>'DISCONNECTED'</code> |
 
 
-#### TelephonyNetworkType
-
-| Members       | Value                  |
-| ------------- | ---------------------- |
-| **`TWO_G`**   | <code>'2G'</code>      |
-| **`THREE_G`** | <code>'3G'</code>      |
-| **`LTE`**     | <code>'LTE'</code>     |
-| **`FIVE_G`**  | <code>'5G'</code>      |
-| **`UNKNOWN`** | <code>'UNKNOWN'</code> |
-
-
 #### TelephonySignalStrengthLevel
 
 | Members        | Value                   |
@@ -87,5 +91,16 @@ getInfo() => Promise<TelephonyInfo>
 | **`MODERATE`** | <code>'MODERATE'</code> |
 | **`GOOD`**     | <code>'GOOD'</code>     |
 | **`GREAT`**    | <code>'GREAT'</code>    |
+
+
+#### TelephonyNetworkType
+
+| Members       | Value                  |
+| ------------- | ---------------------- |
+| **`TWO_G`**   | <code>'2G'</code>      |
+| **`THREE_G`** | <code>'3G'</code>      |
+| **`LTE`**     | <code>'LTE'</code>     |
+| **`FIVE_G`**  | <code>'5G'</code>      |
+| **`UNKNOWN`** | <code>'UNKNOWN'</code> |
 
 </docgen-api>

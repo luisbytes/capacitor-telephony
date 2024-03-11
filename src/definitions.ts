@@ -28,11 +28,14 @@ export enum TelephonyDataState {
 
 export interface TelephonyInfo {
   dataState: TelephonyDataState;
-  networkType: TelephonyNetworkType;
   signalStrengthLevel: TelephonySignalStrengthLevel;
   simOperationName: string;
 }
 
 export interface TelephonyPlugin {
   getInfo(): Promise<TelephonyInfo>;
+
+  getNetworkType(options?: {
+    withBasicPermission?: boolean;
+  }): Promise<{ type: TelephonyNetworkType }>;
 }

@@ -26,27 +26,48 @@ public class TelephonyPlugin extends Plugin {
 
     @PluginMethod
     public void getInfo(PluginCall call) {
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.S_V2) {
-            final PermissionState permissionState = getPermissionState("phone_state");
-
-            if (permissionState != PermissionState.GRANTED) {
-                requestPermissionForAlias("phone_state", call, "phoneStatePermsCallback");
-
-                return;
-            }
-        }
-
         final JSObject info = implementation.getInfo();
 
         call.resolve(info);
     }
 
+    @PluginMethod
+    public void getNetworkType(PluginCall call) {
+        Boolean withBasicPermission = call.getBoolean("withBasicPermission");
+
+        final boolean permissionGranted = this.checkPermission(withBasicPermission);
+
+        if (!permissionGranted) {
+            requestPermissionForAlias("phone_state", call, "phoneStatePermsCallback");
+
+            return;
+        }
+
+        String state = this.implementation.getDataNetworkType(withBasicPermission);
+
+        JSObject ret = new JSObject();
+
+        ret.put("type", state);
+
+        call.resolve(ret);
+    }
+
     @PermissionCallback
     private void phoneStatePermsCallback(PluginCall call) {
         if (getPermissionState("phone_state") == PermissionState.GRANTED) {
-            getInfo(call);
+            getNetworkType(call);
         } else {
             call.reject("Permission is required");
         }
+    }
+
+    private boolean checkPermission(Boolean withBasicPermission) {
+        if (!withBasicPermission && Build.VERSION.SDK_INT <= Build.VERSION_CODES.S_V2) {
+            final PermissionState permissionState = getPermissionState("phone_state");
+
+            return permissionState != PermissionState.GRANTED;
+        }
+
+        return true;
     }
 }
