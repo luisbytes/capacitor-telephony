@@ -14,10 +14,10 @@ export enum TelephonySignalStrengthLevel {
 }
 
 export enum TelephonyNetworkType {
-  '2G' = '2G',
-  '3G' = '3G',
+  TWO_G = '2G',
+  THREE_G = '3G',
   LTE = 'LTE',
-  '5G' = '5G',
+  FIVE_G = '5G',
   UNKNOWN = 'UNKNOWN',
 }
 
