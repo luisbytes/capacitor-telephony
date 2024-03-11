@@ -24,7 +24,7 @@ export class HomePage {
   }
 
   async getNetworkType() {
-    const networkType = await Telephony.getNetworkType({withBasicPermission: false});
+    const networkType = await Telephony.getNetworkType({ withBasicPermission: true });
 
     this.networkType.set(networkType);
   }
