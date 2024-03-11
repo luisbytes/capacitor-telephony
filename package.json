@@ -1,6 +1,6 @@
 {
   "name": "@luisbytes/capacitor-telephony",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "TelephonyManager",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
