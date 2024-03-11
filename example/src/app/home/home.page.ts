@@ -1,7 +1,7 @@
 import { JsonPipe } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonList, IonItem, IonLabel, IonTextarea } from '@ionic/angular/standalone';
-import { Telephony, TelephonyInfo } from '@luisbytes/capacitor-telephony';
+import { Telephony, TelephonyInfo, TelephonyNetworkType } from '@luisbytes/capacitor-telephony';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +13,8 @@ import { Telephony, TelephonyInfo } from '@luisbytes/capacitor-telephony';
 export class HomePage {
   info = signal<TelephonyInfo | null>(null);
 
+  networkType = signal<{ type: TelephonyNetworkType } | null>(null);
+
   constructor() { }
 
   async getInfo() {
@@ -20,4 +22,12 @@ export class HomePage {
 
     this.info.set(info);
   }
+
+  async getNetworkType() {
+    const networkType = await Telephony.getNetworkType({withBasicPermission: false});
+
+    this.networkType.set(networkType);
+  }
+
+
 }
