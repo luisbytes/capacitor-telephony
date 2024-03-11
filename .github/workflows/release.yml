@@ -13,6 +13,7 @@ jobs:
         with:
           node-version: 18
           registry-url: https://registry.npmjs.org/
+      - run: corepack enable pnpm
       - run: pnpm install
       - run: pnpm publish
         env:
