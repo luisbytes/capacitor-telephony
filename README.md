@@ -35,10 +35,10 @@ To use this plugin you need to add the following permissions to the `AndroidMani
 ### getInfo()
 
 ```typescript
-getInfo() => any
+getInfo() => Promise<TelephonyInfo>
 ```
 
-**Returns:** <code>any</code>
+**Returns:** <code>Promise&lt;<a href="#telephonyinfo">TelephonyInfo</a>&gt;</code>
 
 --------------------
 
@@ -46,14 +46,14 @@ getInfo() => any
 ### getNetworkType(...)
 
 ```typescript
-getNetworkType(options?: { withBasicPermission?: boolean | undefined; } | undefined) => any
+getNetworkType(options?: { withBasicPermission?: boolean | undefined; } | undefined) => Promise<{ type: TelephonyNetworkType; }>
 ```
 
 | Param         | Type                                            |
 | ------------- | ----------------------------------------------- |
 | **`options`** | <code>{ withBasicPermission?: boolean; }</code> |
 
-**Returns:** <code>any</code>
+**Returns:** <code>Promise&lt;{ type: <a href="#telephonynetworktype">TelephonyNetworkType</a>; }&gt;</code>
 
 --------------------
 
