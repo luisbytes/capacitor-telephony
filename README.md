@@ -35,10 +35,10 @@ To use this plugin you need to add the following permissions to the `AndroidMani
 ### getInfo()
 
 ```typescript
-getInfo() => Promise<TelephonyInfo>
+getInfo() => any
 ```
 
-**Returns:** <code>Promise&lt;<a href="#telephonyinfo">TelephonyInfo</a>&gt;</code>
+**Returns:** <code>any</code>
 
 --------------------
 
@@ -46,14 +46,14 @@ getInfo() => Promise<TelephonyInfo>
 ### getNetworkType(...)
 
 ```typescript
-getNetworkType(options?: { withBasicPermission?: boolean | undefined; } | undefined) => Promise<{ type: TelephonyNetworkType; }>
+getNetworkType(options?: { withBasicPermission?: boolean | undefined; } | undefined) => any
 ```
 
 | Param         | Type                                            |
 | ------------- | ----------------------------------------------- |
 | **`options`** | <code>{ withBasicPermission?: boolean; }</code> |
 
-**Returns:** <code>Promise&lt;{ type: <a href="#telephonynetworktype">TelephonyNetworkType</a>; }&gt;</code>
+**Returns:** <code>any</code>
 
 --------------------
 
@@ -67,7 +67,7 @@ getNetworkType(options?: { withBasicPermission?: boolean | undefined; } | undefi
 | ------------------------- | ------------------------------------------------------------------------------------- |
 | **`dataState`**           | <code><a href="#telephonydatastate">TelephonyDataState</a></code>                     |
 | **`signalStrengthLevel`** | <code><a href="#telephonysignalstrengthlevel">TelephonySignalStrengthLevel</a></code> |
-| **`simOperationName`**    | <code>string</code>                                                                   |
+| **`simOperatorName`**     | <code>string</code>                                                                   |
 
 
 ### Enums
@@ -77,34 +77,35 @@ getNetworkType(options?: { withBasicPermission?: boolean | undefined; } | undefi
 
 | Members                    | Value                               |
 | -------------------------- | ----------------------------------- |
-| **`DISCONNECTED`**         | <code>'DISCONNECTED'</code>         |
-| **`CONNECTING`**           | <code>'CONNECTING'</code>           |
-| **`CONNECTED`**            | <code>'CONNECTED'</code>            |
-| **`SUSPENDED`**            | <code>'SUSPENDED'</code>            |
-| **`DISCONNECTING`**        | <code>'DISCONNECTING'</code>        |
-| **`HANDOVER_IN_PROGRESS`** | <code>'HANDOVER_IN_PROGRESS'</code> |
+| **`UNKNOWN`**              | <code>"UNKNOWN"</code>              |
+| **`DISCONNECTED`**         | <code>"DISCONNECTED"</code>         |
+| **`CONNECTING`**           | <code>"CONNECTING"</code>           |
+| **`CONNECTED`**            | <code>"CONNECTED"</code>            |
+| **`SUSPENDED`**            | <code>"SUSPENDED"</code>            |
+| **`DISCONNECTING`**        | <code>"DISCONNECTING"</code>        |
+| **`HANDOVER_IN_PROGRESS`** | <code>"HANDOVER_IN_PROGRESS"</code> |
 
 
 #### TelephonySignalStrengthLevel
 
 | Members        | Value                   |
 | -------------- | ----------------------- |
-| **`UNKNOWN`**  | <code>'UNKNOWN'</code>  |
-| **`NONE`**     | <code>'NONE'</code>     |
-| **`POOR`**     | <code>'POOR'</code>     |
-| **`MODERATE`** | <code>'MODERATE'</code> |
-| **`GOOD`**     | <code>'GOOD'</code>     |
-| **`GREAT`**    | <code>'GREAT'</code>    |
+| **`UNKNOWN`**  | <code>"UNKNOWN"</code>  |
+| **`NONE`**     | <code>"NONE"</code>     |
+| **`POOR`**     | <code>"POOR"</code>     |
+| **`MODERATE`** | <code>"MODERATE"</code> |
+| **`GOOD`**     | <code>"GOOD"</code>     |
+| **`GREAT`**    | <code>"GREAT"</code>    |
 
 
 #### TelephonyNetworkType
 
 | Members       | Value                  |
 | ------------- | ---------------------- |
-| **`TWO_G`**   | <code>'2G'</code>      |
-| **`THREE_G`** | <code>'3G'</code>      |
-| **`LTE`**     | <code>'LTE'</code>     |
-| **`FIVE_G`**  | <code>'5G'</code>      |
-| **`UNKNOWN`** | <code>'UNKNOWN'</code> |
+| **`UNKNOWN`** | <code>"UNKNOWN"</code> |
+| **`TWO_G`**   | <code>"2G"</code>      |
+| **`THREE_G`** | <code>"3G"</code>      |
+| **`LTE`**     | <code>"LTE"</code>     |
+| **`FIVE_G`**  | <code>"5G"</code>      |
 
 </docgen-api>
